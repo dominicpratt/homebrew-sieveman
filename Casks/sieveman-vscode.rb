@@ -11,7 +11,7 @@ cask "sieveman-vscode" do
   container type: :naked
 
   postflight do
-    system_command! "code", args: ["--install-extension", staged_path.to_s, "--force"]
+    system_command "code", args: ["--install-extension", staged_path.to_s, "--force"], must_succeed: true
   end
 
   uninstall script: {
