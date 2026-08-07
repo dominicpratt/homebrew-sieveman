@@ -17,6 +17,8 @@ cask "sieveman-bbedit" do
     executable: "sieveman-#{version}/contrib/bbedit/uninstall.sh",
   }
 
+  zap trash: "~/.config/sieveman/bbedit.conf"
+
   caveats <<~EOS
     Add your ManageSieve credentials to:
       ~/.config/sieveman/bbedit.conf
