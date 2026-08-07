@@ -10,18 +10,28 @@ cask "sieveman-vscode" do
   depends_on formula: "dominicpratt/sieveman/sieveman"
   container type: :naked
 
+  # Homebrew sanitizes the PATH used by system_command/uninstall script, so
+  # a bare "code" doesn't resolve even when it's on the user's own PATH.
+  # This is the fixed location both the official visual-studio-code cask
+  # and a direct download from code.visualstudio.com install to.
+  code_bin = "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
+
   postflight do
-    system_command "code", args: ["--install-extension", staged_path.to_s, "--force"], must_succeed: true
+    unless File.executable?(code_bin)
+      opoo "#{code_bin} not found - install VS Code first, then run " \
+           "`code --install-extension` yourself with the file in " \
+           "#{staged_path}."
+      next
+    end
+    system_command code_bin, args: ["--install-extension", staged_path.to_s, "--force"], must_succeed: true
   end
 
   uninstall script: {
-    executable: "code",
+    executable: code_bin,
     args:       ["--uninstall-extension", "dominicpratt.sieveman-vscode"],
   }
 
   caveats <<~EOS
-    Requires the "code" command on PATH. If `code --version` doesn't work
-    in your terminal, run "Shell Command: Install 'code' command in PATH"
-    from VS Code's Command Palette first.
+    Requires VS Code to be installed at /Applications/Visual Studio Code.app.
   EOS
 end
