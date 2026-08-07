@@ -7,6 +7,10 @@ cask "sieveman-vscode" do
   desc "Download/upload Sieve scripts via sieveman, .sieve highlighting"
   homepage "https://github.com/dominicpratt/sieveman/tree/main/contrib/vscode"
 
+  livecheck do
+    skip "versioned independently in contrib/vscode/package.json, not tied to sieveman's own release tags"
+  end
+
   depends_on formula: "dominicpratt/sieveman/sieveman"
   container type: :naked
 
