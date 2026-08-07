@@ -4,12 +4,11 @@ cask "sieveman-vscode" do
 
   url "https://github.com/dominicpratt/sieveman/releases/download/v0.5.1/sieveman-vscode-#{version}.vsix"
   name "Sieveman for VS Code"
-  desc "Download/upload Sieve scripts and .sieve syntax highlighting for VS Code, via sieveman"
+  desc "Download/upload Sieve scripts via sieveman, .sieve highlighting"
   homepage "https://github.com/dominicpratt/sieveman/tree/main/contrib/vscode"
 
-  container type: :naked
-
   depends_on formula: "dominicpratt/sieveman/sieveman"
+  container type: :naked
 
   postflight do
     system_command! "code", args: ["--install-extension", staged_path.to_s, "--force"]
