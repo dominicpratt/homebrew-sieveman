@@ -1,8 +1,8 @@
 class Sieveman < Formula
   desc "Universal ManageSieve protocol client"
   homepage "https://github.com/dominicpratt/sieveman"
-  url "https://github.com/dominicpratt/sieveman/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "f70424d3e3f9012d846671897557feaabc567d867336b393cb8ad47150e1e364"
+  url "https://github.com/dominicpratt/sieveman/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "4cdd841d734e651936823b8ff62b5fc7bcb7cca393c35650468772b166114e21"
   license "ISC"
   head "https://github.com/dominicpratt/sieveman.git", branch: "main"
 
