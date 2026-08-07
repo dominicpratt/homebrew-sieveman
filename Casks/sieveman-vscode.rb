@@ -23,7 +23,8 @@ cask "sieveman-vscode" do
            "#{staged_path}."
       next
     end
-    system_command code_bin, args: ["--install-extension", staged_path.to_s, "--force"], must_succeed: true
+    vsix = staged_path/"sieveman-vscode-#{version}.vsix"
+    system_command code_bin, args: ["--install-extension", vsix.to_s, "--force"], must_succeed: true
   end
 
   uninstall script: {
