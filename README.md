@@ -1,18 +1,21 @@
-# Dominicpratt Sieveman
+# homebrew-sieveman
 
-## How do I install these formulae?
+Homebrew tap for [sieveman](https://github.com/dominicpratt/sieveman), a
+universal ManageSieve protocol client.
 
-`brew install dominicpratt/sieveman/<formula>`
+## Installation
 
-Or `brew tap dominicpratt/sieveman` and then `brew install <formula>`.
+```bash
+brew install dominicpratt/sieveman/sieveman
+```
 
-Or, in a `brew bundle` `Brewfile`:
+or
 
-```ruby
-tap "dominicpratt/sieveman"
-brew "<formula>"
+```bash
+brew tap dominicpratt/sieveman
+brew install sieveman
 ```
 
 ## Documentation
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+See the [sieveman README](https://github.com/dominicpratt/sieveman) for usage.
